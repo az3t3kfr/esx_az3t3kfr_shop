@@ -1,32 +1,36 @@
-# esx_shops
+# esx_az3t3kfr_shop
 
-## Download & Installation
+Salut, aujourd'hui j'ai créé un script super qui permet de faire apparaître les blips seulement quand vous êtes à proximité j'ai pu réaliser ce script grâce à https://github.com/InZidiuZ et esx_shop
 
-### Using [fvm](https://github.com/qlaffont/fvm-installer)
-```
-fvm install --save --folder=esx esx-org/esx_shops
-```
+Hi, today I created a great script that allows blips to appear only when you are nearby I was able to make this script thanks to https://github.com/InZidiuZ  and esx_shop
 
-### Using Git
+### Using Git ##
 ```
 cd resources
-git clone https://github.com/ESX-Org/esx_shops [esx]/esx_shops
+git clone https://github.com/az3t3kfr/esx__az3t3kfr_shop [scripts]/esx_az3t3kfr_shop
 ```
 
-### Manually
+### Manually ##
 - Download https://github.com/ESX-Org/esx_shops/archive/master.zip
 - Put it in the `[esx]` directory
 
-## Installation
-- Import `esx_shops.sql` to your database
+## Installation ##
+- Import `esx_az3t3kfr_shop.sql` to your database
 - Add this in your `server.cfg`:
 
 ```
-start esx_shops
+start esx_az3t3kfr_shop
 ```
 
+ 	-              𝐌𝐨𝐧 𝐝𝐢𝐬𝐜𝐨𝐫𝐝             -
+ 	-----------------------------------------
+	 - Discord: https://discord.gg/XSwkpEV -
+	-----------------------------------------
+
+############################################################################################################################################
+
 # Legal
-### License
+### License ##
 esx_shops - shoppin'
 
 Copyright (C) 2015-2018 Jérémie N'gadi
