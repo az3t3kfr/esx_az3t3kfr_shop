@@ -31,7 +31,7 @@ if Config.ShowNearestGasStationOnly then
 
 			currentGasBlip = CreateBlip(closestCoords)
 
-			Citizen.Wait(1500)
+			Citizen.Wait(1000)
 		end
 	end)
 elseif Config.ShowAllGasStations then
