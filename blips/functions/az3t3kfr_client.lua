@@ -22,9 +22,9 @@ end
 function CreateBlip(coords)
 	local blip = AddBlipForCoord(coords)
 
-	SetBlipSprite(blip, 78)
+	SetBlipSprite(blip, 52)
 	SetBlipScale(blip, 0.9)
-	SetBlipColour(blip, 3)
+	SetBlipColour(blip, 2)
 	SetBlipDisplay(blip, 4)
 	SetBlipAsShortRange(blip, true)
 
