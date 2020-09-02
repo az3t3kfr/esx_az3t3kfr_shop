@@ -10,7 +10,7 @@ Config.Map = {
   {name="Bahamas",color=27, id=93,x =-1388.409, y =-585.624, z =100.319},
  -- {name="Stripclub",color=27, id=121,x =132.17, y =-1304.42, z =100.319},
   {name="Yellow Jack",color=27, id=93,x =1992.69, y =3058.57, z =100.319},
-  {name="Galaxy",color=27, id=93,x =5.00, y =220.24, z =107.72}, -- Wainting for the nightclub id blip
+  {name="Galaxy",color=27, id=93,x =5.00, y =220.24, z =107.72} -- Wainting for the nightclub id blip
   --[[{name="Magasin",color=3, id=78,x =373.875, y =325.896, z =100.319},
   {name="Magasin",color=3, id=78,x =2557.458, y =382.282, z =100.319},
   {name="Magasin",color=3, id=78,x =-361.9664, y =-133.3378, z =37.7686},
@@ -42,7 +42,7 @@ Config.Zones = {
     TwentyFourSeven = {
         Items = { phone, gps},
         Pos = {
-            {x = 1208.327,  y = -3113.468, z = 4.540}
+            --{x = 1208.327,  y = -3113.468, z = 4.540}
             
         }	
     },
@@ -75,9 +75,9 @@ Config.Zones = {
     },
 
     LTDgasoline = {
-        Items = {gps},
+        Items = { phone, gps},
         Pos = {
-            {x =-27.0499, y =-1675.7020, z =28.5099}
+            --{x =-27.0499, y =-1675.7020, z =28.5099}
 
         }
     },
