@@ -34,7 +34,7 @@ Config.Map = {
   {name="Magasin",color=3, id=78,x =-1820.523, y =792.518, z =137.118},
   {name="Magasin",color=3, id=78,x =1698.388, y =4924.404, z =41.063},
   {name="Magasin",color=3, id=78,x =1698.388, y =4924.404, z =41.063},]]
-  {name="Informatique",color=50, id=459,x =-27.0499, y =-1675.7020, z =28.5099}-- informatique
+  --{name="Informatique",color=50, id=459,x =-27.0499, y =-1675.7020, z =28.5099}-- informatique
 }
 
 Config.Zones = {
