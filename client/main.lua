@@ -182,17 +182,8 @@ Citizen.CreateThread(function()
 		end
 	end
 end)
-
-local CurrentVersion = '1.1'
-local GithubResourceName = 'AZ3T3KFR'
-
-PerformHttpRequest('https://raw.githubusercontent.com/Flatracer/FiveM_Resources/master/' .. GithubResourceName .. '/VERSION', function(Error, NewestVersion, Header)
-	PerformHttpRequest('https://raw.githubusercontent.com/Flatracer/FiveM_Resources/master/' .. GithubResourceName .. '/CHANGES', function(Error, Changes, Header)
-		print('\n')
 		print('##############')
 		print('## AZ3T3KFR GAME ')
 		print('## LifeLive RP ')
 		print('## Discord: AZ3T3KFR Game#7183')
 		print('##############')
-	end)
-end)
