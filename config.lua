@@ -38,7 +38,6 @@ Config.Map = {
 }
 
 Config.Zones = {
---braquage
     TwentyFourSeven = {
         Items = { phone, gps},
         Pos = {
@@ -77,7 +76,7 @@ Config.Zones = {
     LTDgasoline = {
         Items = { phone, gps},
         Pos = {
-            --{x =-27.0499, y =-1675.7020, z =28.5099}
+            --{x =-27.0499, y =-1675.7020, z =28.5099} -- informatique
 
         }
     },
