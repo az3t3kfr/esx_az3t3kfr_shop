@@ -2,10 +2,16 @@ Config 				={}
 Config.Locale 		='fr'
 Config.DrawDistance = 100
 
-Config.BlipDefault={
-	Size 	={ x =1.5, y =1.5, z =1.5 }
-	Color 	={ r =0, g =128, b =255 }
-	Type	=1
+Config.Default={
+	Blip	={
+		Blip	=1,
+		Scale 	=0.9
+		Color	=0
+	},
+	Marker	={
+		Size	={ 1.5, 1.5, 1.5 },
+		Color 	={ 0, 128, 255 }
+	}
 }
 
 Config.Map = {
@@ -224,7 +230,11 @@ Config.Map = {
 
 Config.Zones = {
 	TwentyFourSeven = {
-		Name ="24/7",
+		Name 	="24/7",
+		Blip	={
+			Type	=52,
+			Color	=2
+		}
 		Items = {
 			'phone',
 			'gps'
@@ -235,6 +245,8 @@ Config.Zones = {
 	},
 	RobsLiquor = {
 		Name ="Robs Liquor",
+		Type	=52,
+		Color	=6,
 		Items = {
 			'bread',
 			'chocolate',
@@ -275,7 +287,9 @@ Config.Zones = {
 		}
 	},
 	LTDgasoline = {
-		Name ="LTD Gasoline"
+		Name ="LTD Gasoline",
+		Type	=52,
+		Color	=29,
 		Items = {
 			'phone',
 			'gps'
