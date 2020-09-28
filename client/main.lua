@@ -52,6 +52,7 @@ if Config.UseESX then
 		end
 	end)
 end
+
 if Config.ShowNearestGasStationOnly then
 	Citizen.CreateThread(function()
 		local currentGasBlip = 0
@@ -91,34 +92,36 @@ end
 
 Citizen.CreateThread(function()
 
-	for i=1, #Config.Zones, 1 do
-		coords ={ Config.Map[i].x, Config.Map[i].y, Config.Map[i].z }
-		CreateBlip(coords)
+	for name, shop in ipairs(Config.Zones) do
+		local text	=shop.Name or name
+		local blip	=shop.Blip.Type		or Config.Default.Blip.Type
+		local scale	=shop.Blip.Scale	or Config.Default.Blip.Scale
+		local color	=shop.Blip.Color	or Config.Default.Blip.Color
 
-		local blip = AddBlipForCoord()
-		SetBlipSprite (blip, Config.Map[i].id)
-		SetBlipScale  (blip, 1.0)
-		SetBlipDisplay(blip, 4)
-		SetBlipColour (blip, Config.Map[i].color)
-		SetBlipAsShortRange(blip, true)
-
-		BeginTextCommandSetBlipName("STRING")
-		AddTextComponentString(Config.Map[i].name)
-		EndTextCommandSetBlipName(blip)
-	end
-
+		for _, pos in pairs(shop.Pos) do
+			CreateBlip(pos, text, type, size, color)
+		end
 end)
 Citizen.CreateThread(function()
 	while true do
 		Citizen.Wait(0)
 		local coords = GetEntityCoords(PlayerPedId())
 
-		for k,v in pairs(Config.Zones) do
-			for i = 1, #v.Pos, 1 do
-				if Config.Type ~= -1
-					and GetDistanceBetweenCoords(coords, v.Pos[i].x, v.Pos[i].y, v.Pos[i].z, true) < Config.DrawDistance
+		for _, shop in pairs(Config.Zones) do
+			local type	=shop.Blip.Type or -1
+			local color	=shop.Marker.Color	or Config.Default.Marker.Color
+			local size	=shop.Marker.Size	or Config.Default.Marker.Size
+
+			for _, pos in pairs(shop.Pos) do
+				if type ~= -1
+					and (GetDistanceBetweenCoords(coords, pos, true) < Config.DrawDistance)
 				then
-					DrawMarker(Config.Type, v.Pos[i].x, v.Pos[i].y, v.Pos[i].z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, Config.Size.x, Config.Size.y, Config.Size.z, Config.Color.r, Config.Color.g, Config.Color.b, 100, false, true, 2, false, false, false, false)
+					DrawMarker(
+						type, pos,
+						0.0, 0.0, 0.0, 0, 0.0, 0.0,
+						size, color, 
+						100, false, true, 2, false, false, false, false
+					)
 				end
 			end
 		end
