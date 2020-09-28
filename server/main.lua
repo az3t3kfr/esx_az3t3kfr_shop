@@ -39,14 +39,11 @@ AddEventHandler('esx_shops:buyItem', function(itemName, amount, zone)
 	local sourceItem = xPlayer.getInventoryItem(itemName)
 
 	amount = ESX.Math.Round(amount)
-
-	-- is the player trying to exploit?
 	if amount < 0 then
 		print('esx_shops: ' .. xPlayer.identifier .. ' attempted to exploit the shop!')
 		return
 	end
 
-	-- get price
 	local price = 0
 	local itemLabel = ''
 
@@ -59,19 +56,24 @@ AddEventHandler('esx_shops:buyItem', function(itemName, amount, zone)
 	end
 
 	price = price * amount
-
-	-- can the player afford this item?
 	if xPlayer.getMoney() >= price then
-		-- can the player carry the said amount of x item?
+		
 		if sourceItem.limit ~= -1 and (sourceItem.count + amount) > sourceItem.limit then
 			TriggerClientEvent('esx:showNotification', _source, _U('player_cannot_hold'))
 		else
 			xPlayer.removeMoney(price)
 			xPlayer.addInventoryItem(itemName, amount)
-			TriggerClientEvent('esx:showNotification', _source, _U('bought', amount, itemLabel, ESX.Math.GroupDigits(price)))
+			TriggerClientEvent(
+				'esx:showNotification',
+				_source,
+				_U('bought', amount, itemLabel, ESX.Math.GroupDigits(price))
+			)
 		end
 	else
 		local missingMoney = price - xPlayer.getMoney()
-		TriggerClientEvent('esx:showNotification', _source, _U('not_enough', ESX.Math.GroupDigits(missingMoney)))
+		TriggerClientEvent(
+			'esx:showNotification',
+			_source,
+			_U('not_enough', ESX.Math.GroupDigits(missingMoney)))
 	end
 end)
