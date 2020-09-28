@@ -1,4 +1,4 @@
-function CreateBlip(coords, text)
+function CreateBlip(coords, text, sprite, scale, color)
 	local blip = AddBlipForCoord(coords)
 
 	SetBlipSprite(blip, 52)
