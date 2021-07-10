@@ -1,5 +1,5 @@
 Config 				={}
-Config.Locale 		='fr'
+Config.Locale 		="fr"
 Config.DrawDistance = 100
 
 Config.Default={
@@ -236,8 +236,8 @@ Config.Zones = {
 			Color	=2
 		}
 		Items = {
-			'phone',
-			'gps'
+			"phone",
+			"gps"
 		},
 		Pos = {
 			vector3(1208.327	,-3113.468	,4.540)
@@ -248,19 +248,19 @@ Config.Zones = {
 		Type	=52,
 		Color	=6,
 		Items = {
-			'bread',
-			'chocolate',
-			'hamburge',
-			'cupcake',
-			'water',
-			'cocacola',
-			'icetea',
-			'coffe',
-			'milk',
-			'cigarett',
-			'lighter',
-			'phone',
-			'jumelles'
+			"bread",
+			"chocolate",
+			"hamburge",
+			"cupcake",
+			"water",
+			"cocacola",
+			"icetea",
+			"coffe",
+			"milk",
+			"cigarett",
+			"lighter",
+			"phone",
+			"jumelles"
 		},
 		Pos = {
 			vector3(1135.808	,-982.281	,45.415),
@@ -291,8 +291,8 @@ Config.Zones = {
 		Type	=52,
 		Color	=29,
 		Items = {
-			'phone',
-			'gps'
+			"phone",
+			"gps"
 		},
 		Pos = {
 			vector3(-27.0499, -1675.7020, 28.5099)
@@ -309,16 +309,15 @@ Config.Zones = {
 			z = 28.5099
 		}
 	}
-
 	Bar = {
 		Items = {
-			'beer',
-			'wine',
-			'vodka',
-			'tequila',
-			'whisky',
-			'cigarett',
-			'lighter'
+			"beer",
+			"wine",
+			"vodka",
+			"tequila",
+			"whisky",
+			"cigarett",
+			"lighter"
 		},
 		Pos = {
 			vector3(127.830, -1284.796, 28.280),
@@ -330,13 +329,13 @@ Config.Zones = {
 
 	Disco = {
 		Items = {
-			'beer',
-			'wine',
-			'vodka',
-			'tequila',
-			'whisky',
-			'cigarett',
-			'lighter'
+			"beer",
+			"wine",
+			"vodka",
+			"tequila",
+			"whisky",
+			"cigarett",
+			"lighter"
 		},
 		Pos = {
 			vector3(-1586.922	,-3012.860	,-77.004),

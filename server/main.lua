@@ -1,39 +1,62 @@
 ESX             = nil
 local ShopItems = {}
 
-TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
+RegisterServerEvent('esx_shops:buyItem')
 
-MySQL.ready(function()
-	MySQL.Async.fetchAll('SELECT * FROM shops LEFT JOIN items ON items.name = shops.item', {}, function(shopResult)
-		for i=1, #shopResult, 1 do
-			if shopResult[i].name then
-				if ShopItems[shopResult[i].store] == nil then
-					ShopItems[shopResult[i].store] = {}
-				end
 
-				if shopResult[i].limit == -1 then
-					shopResult[i].limit = 30
-				end
+AddEventHandler('onServerRessourceStart'	,function(res)
 
-				table.insert(ShopItems[shopResult[i].store], {
-					label = shopResult[i].label,
-					item  = shopResult[i].item,
-					price = shopResult[i].price,
-					limit = shopResult[i].limit
-				})
-			else
-				print(('esx_shops: invalid item "%s" found!'):format(shopResult[i].item))
-			end
+	if GetCurrentResourceName() ~= res then
+		return false
+	end
+
+	print('##############')
+    print('## AZ3T3KFR GAME ')
+    print('## LifeLive RP ')
+    print('## Discord: AZ3T3KFR Game#7183')
+    print('##############')
+
+	while (function()
+		
+		if ESX == nil then
+			return true
 		end
+
+		ESX.RegisterServerCallback('esx_shops:requestDBItems', function(source, cb)
+			cb(ShopItems)
+		end)
+	end)() do
+		TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
+		Wait(30)
+	end
+
+	MySQL.ready(function()
+		MySQL.Async.store('SELECT * FROM shops LEFT JOIN items ON items.name = shops.item', {}, function(shopResult)
+			for i=1, #shopResult, 1 do
+				if shopResult[i].name then
+					if ShopItems[shopResult[i].store] == nil then
+						ShopItems[shopResult[i].store] = {}
+					end
+	
+					if shopResult[i].limit == -1 then
+						shopResult[i].limit = 30
+					end
+	
+					table.insert(ShopItems[shopResult[i].store], {
+						label = shopResult[i].label,
+						item  = shopResult[i].item,
+						price = shopResult[i].price,
+						limit = shopResult[i].limit
+					})
+				else
+					print(('esx_shops: invalid item "%s" found!'):format(shopResult[i].item))
+				end
+			end
+		end)
 	end)
 end)
 
-ESX.RegisterServerCallback('esx_shops:requestDBItems', function(source, cb)
-	cb(ShopItems)
-end)
-
-RegisterServerEvent('esx_shops:buyItem')
-AddEventHandler('esx_shops:buyItem', function(itemName, amount, zone)
+AddEventHandler('esx_shops:buyItem'			,function(itemName, amount, zone)
 	local _source = source
 	local xPlayer = ESX.GetPlayerFromId(_source)
 	local sourceItem = xPlayer.getInventoryItem(itemName)
@@ -71,9 +94,11 @@ AddEventHandler('esx_shops:buyItem', function(itemName, amount, zone)
 		end
 	else
 		local missingMoney = price - xPlayer.getMoney()
+		
 		TriggerClientEvent(
 			'esx:showNotification',
 			_source,
-			_U('not_enough', ESX.Math.GroupDigits(missingMoney)))
+			_U('not_enough', ESX.Math.GroupDigits(missingMoney))
+		)
 	end
 end)
